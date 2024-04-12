@@ -23,8 +23,9 @@ const signup = () => {
     password: "",
   });
 
+  console.log(formData);
   let handleChange = (event) => {
-    const { name, value } = event.target.value;
+    const { name, value } = event.target;
     setFormData({
       ...formData,
       [name]: value,
