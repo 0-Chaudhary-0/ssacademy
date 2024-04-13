@@ -39,7 +39,7 @@ function Enroll() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProgress(30);
-    const response = await fetch("http://localhost:3000/api/student/enroll", {
+    const response = await fetch("https://server-murex-seven.vercel.app/api/student/enroll", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

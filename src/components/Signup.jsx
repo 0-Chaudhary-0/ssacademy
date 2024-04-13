@@ -34,7 +34,7 @@ const signup = () => {
   let handleSubmit = async (event) => {
     event.preventDefault();
     setProgress(30);
-    const response = await fetch("http://localhost:3000/api/auth/signup", {
+    const response = await fetch("https://server-murex-seven.vercel.app/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
