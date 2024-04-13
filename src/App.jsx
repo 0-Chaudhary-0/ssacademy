@@ -7,6 +7,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Enroll from "./components/Enroll";
+import Footer from "./components/Footer";
+import TermsAndPolicy from "./components/Terms&Policy";
 
 
 const router = createBrowserRouter([
@@ -16,6 +18,7 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Professors />
+        <Footer/>
       </>
     ),
   },
@@ -25,6 +28,7 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Enroll />
+        <Footer/>
       </>
     ),
   },
@@ -34,6 +38,7 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Contact />
+        <Footer/>
       </>
     ),
   },
@@ -52,6 +57,17 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <About/>
+        <Footer/>
+      </>
+    ),
+  },
+  {
+    path: "/terms&policy",
+    element: (
+      <>
+        <Navbar />
+        <TermsAndPolicy/>
+        <Footer/>
       </>
     ),
   },

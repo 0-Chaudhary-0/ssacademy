@@ -4,116 +4,114 @@ import Typewriter from "typewriter-effect";
 const Professors = () => {
   return (
     <>
-    <div className="flex items-center inline-block justify-center text-center my-5 font-semibold text-2xl">
-        <span className="mx-1">Our Professors &nbsp;&nbsp;¦</span>
-        <span className="text-pink-500 w-40"><Typewriter
-          options={{
-            strings: ["Arbab Ali", "Abdul Sattar", "Rana Asif", "Abdul Gaffar"],
-            autoStart: true,
-            delay: 40,
-            loop: true,
-            deleteSpeed: 40,
-          }}
-        />
+      <div className="flex items-left inline-block justify-center text-center my-5 font-semibold text-xl">
+        <span className="">Our Professors &nbsp;&nbsp;</span>
+        <span className="text-pink-500 w-40">
+          <Typewriter
+            options={{
+              strings: [
+                "Arbab Ali",
+                "Abdul Sattar",
+                "Asif Ali",
+                "Abdul Gaffar",
+              ],
+              autoStart: true,
+              delay: 40,
+              loop: true,
+              deleteSpeed: 40,
+            }}
+          />
         </span>
-        </div>
+      </div>
+        {/* <div className="flex items-left inline-block ml-5 my-5 font-semibold text-xl text-red-600">
+          <span>Login Before Enroll</span>
+        </div> */}
       <div className="flex items-center justify-center text-center my-5">
-        <div className="flex flex-col p-2 m-2 ">
-          {/* <div className="text-3xl font-medium">Meet Our Team</div> */}
+        <div className="flex flex-col p-2 my-2">
+          <div className="text-3xl font-medium my-2">
+            Meet Our Esteemed Professors
+          </div>
           <div className="text-sm mx-2 md:text-xl text-stone-500">
-            Meet the team member who have contributed their designs for this
-            websites.
+            Explore the wealth of knowledge and experience embodied by our
+            distinguished professors.
           </div>
           <div className="text-sm mx-2 md:text-xl mb-2 text-stone-500">
-            Resource person of Tailblocks communinty
+            Meet the guiding lights who are shaping the minds of tomorrow's
+            leaders.
           </div>
-          <div className="md:grid flex">
-            <div className="flex items-center justify-center md:flex-row flex-col space-x-4  p-2">
-              <div className="flex-col px-6 py-2  max-w-7xl">
+
+          <div className="md:grid flex my-4">
+            <div className="flex items-center justify-center md:flex-row flex-col space-x-4 p-2">
+              <div className="flex-col px-6 py-2 max-w-7xl">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src="https://source.unsplash.com/300x300/?man,businessman"
-                    alt=""
+                    src="https://scontent.fskz2-1.fna.fbcdn.net/v/t39.30808-6/410238455_3499628670351937_4216429116524837073_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE0Dbh2KPsFYPVyyX24jfeFY2x5AJrXd-VjbHkAmtd35fMR1ck74ltGqacJihSopA-AaHeggxDJBQm9yAUOdtz9&_nc_ohc=FlNEgV3u0PAAb5hzHfX&_nc_zt=23&_nc_ht=scontent.fskz2-1.fna&oh=00_AfDBgH1ohocxIyq4-0imx9iouJQIam2HAT1uKVw3-ywX6w&oe=661FEFD0"
+                    alt="Arbab Ali"
                     className=""
                   />
                 </div>
 
                 <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-                  John Doe
+                Arbab Ali
                 </div>
-                <div className=" italic text-gray-500">CEO, Tailblocks</div>
+                <div className=" italic text-gray-500">Mathematics</div>
               </div>
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src="https://source.unsplash.com/300x300/?boy"
-                    alt=""
+                    src="https://scontent.fhdd3-1.fna.fbcdn.net/v/t39.30808-6/434354842_482792667740926_380438456912630462_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHqyzKVuufct_OLtFoFVdPh5kCQcB3L3LXmQJBwHcvctWFBC9VrfFPHuQBac6esqHOCPKnkVH1Vy05qSPHJxP50&_nc_ohc=F1DCYC76DC4Ab71Zk9V&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&oh=00_AfBRb_M94Di99_N_4XAgE8lzJzEWBYmS-GW6TD97KuoGUA&oe=66201078"
+                    alt="Abdul Sattar"
                     className=""
                   />
                 </div>
 
                 <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-                  Arkay
+                Abdul Sattar
                 </div>
-                <div className=" italic text-gray-500">Executive Producer</div>
-              </div>
-              <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
-                  <img
-                    src="https://source.unsplash.com/300x300/?girl"
-                    alt=""
-                    className=""
-                  />
-                </div>
-
-                <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-                  Elina Gilbert
-                </div>
-                <div className=" italic text-gray-500">HR</div>
+                <div className=" italic text-gray-500">Chemistry</div>
               </div>
             </div>
-            <div className="flex space-x-4  p-2 items-center justify-center md:flex-row flex-col ">
-              <div className="flex-col px-6 py-2 ">
+            <div className="flex items-center justify-center md:flex-row flex-col space-x-4 p-2 ">
+            <div className="flex-col px-6 py-2">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src="https://source.unsplash.com/300x300/?kid"
-                    alt=""
+                    src="https://scontent.fhdd3-1.fna.fbcdn.net/v/t39.30808-6/396535544_3655197614805678_2472260339066709772_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGljscOu_FqBFnbpJcG6wLU4DagnfqdvengNqCd-p296VCaY1QvMPE_XDnIeoI58h3H1MnXWoZt8qKUymdp-6BJ&_nc_ohc=EJ9s2Rrh8REAb6Dgm3H&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&oh=00_AfCJcd0M27YzlRWWIqY4Ee2SyUu5OkbecAHOz4Hzzdn8qg&oe=661FEFE5"
+                    alt="Abdul Gaffar"
                     className=""
                   />
                 </div>
 
                 <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-                  Clay Johnson
+                Abdul Gaffar
                 </div>
-                <div className=" italic text-gray-500">Manager</div>
+                <div className="italic text-gray-500">English</div>
               </div>
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src="https://source.unsplash.com/300x300/?girl,woman"
-                    alt=""
+                    src="https://tse4.explicit.bing.net/th?id=OIP.xo-BCC1ZKFpLL65D93eHcgHaGe&pid=Api&P=0&h=220"
+                    alt="Asif Ali"
                     className=""
                   />
                 </div>
-
                 <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
+                Asif Ali
+                </div>
+                <div className=" italic text-gray-500">Physics</div>
+              </div>
+              <div className="flex-col px-6 py-2 ">
+                {/* <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                  <img
+                    src="https://source.unsplash.com/"
+                    alt=""
+                    className=""
+                  />
+                </div> */}
+
+                {/* <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
                   Hannah Saw
                 </div>
-                <div className=" italic text-gray-500">Marketing Producer</div>
-              </div>
-              <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
-                  <img
-                    src="https://source.unsplash.com/300x300/?woman"
-                    alt=""
-                    className=""
-                  />
-                </div>
-
-                <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-                  Wednesday Addams
-                </div>
-                <div className=" italic text-gray-500">Financer</div>
+                <div className=" italic text-gray-500">Marketing Producer</div> */}
               </div>
             </div>
           </div>

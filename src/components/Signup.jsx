@@ -23,7 +23,6 @@ const signup = () => {
     password: "",
   });
 
-  console.log(formData);
   let handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -35,7 +34,7 @@ const signup = () => {
   let handleSubmit = async (event) => {
     event.preventDefault();
     setProgress(30);
-    const response = await fetch("http://localhost:3000/api/auth/login", {
+    const response = await fetch("http://localhost:3000/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

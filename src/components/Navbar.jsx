@@ -34,24 +34,13 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="text-gray-600 body-font">
+      <header className="text-gray-600 bg-gray-100 body-font">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <Link
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
             to="/"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
+            <img src="https://scontent.fskz2-1.fna.fbcdn.net/v/t39.30808-6/395431154_187452687741817_4689098674194842649_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHMQxTzLHWu5m84pAC_29p8wRGCbdjuY_PBEYJt2O5j8-PgxNGQwQkvj097galf_uGDWyjGopXdbojT_D9uSZev&_nc_ohc=-dIJMY2PrKgAb7eX7YN&_nc_zt=23&_nc_ht=scontent.fskz2-1.fna&oh=00_AfDb9VtWDI-0B_5eHZho4DlHjedOfsGw_wqxZIiy7S6FvQ&oe=661F47CB" alt="Superior Science Academy" className="h-8 w-8 image" />
             <span className="ml-3 text-xl">Superior Science Academy</span>
           </Link>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -66,22 +55,23 @@ const Navbar = () => {
             </Link>
           </nav>
           {isLogin ? (
-            <div className="relative">
+            <div className="cursor-pointer relative">
               <TiUser
-                className="text-2xl mt-2 md:mt-0 cursor-pointer"
+                className="text-2xl mt-2 md:mt-0"
                 onClick={handleMiniBar}
               />
               {miniBar && 
-              <div className="absolute right-5 top-8 text-white flex flex-col font-semibold bg-blue-500 py-2 px-4 rounded-lg">
+              <div className="absolute right-4 top-8 text-white flex flex-col font-semibold bg-blue-500 py-2 px-4 rounded-lg">
                 {/* <span className="cursor-pointer" key={key} onClick={handleLogout}>Enroll Now</span> */}
                 <span className="cursor-pointer" key={key} onClick={handleLogout}>Logout</span>
               </div>
               }
             </div>
           ) : (
-            <div className="cursor-pointer">
+            <div className="cursor-pointer relative">
             <Link to="/login">
-              <TiUserAdd className="text-2xl mt-2 md:mt-0" />
+            <span className="text-pink-500 mt-2 md:mt-0 font-semibold">Login</span>
+              {/* <TiUserAdd className="text-2xl text-pink-500 mt-2 md:mt-0" /> */}
             </Link>
             </div>
           )}
