@@ -36,7 +36,11 @@ const login = () => {
   let handleSubmit = async (event) => {
     event.preventDefault();
     setProgress(30);
+<<<<<<< HEAD
     const response = await fetch("https://server-murex-seven.vercel.app/api/auth/login", {
+=======
+    const response = await fetch("https://ssacademy-rust.vercel.app/api/auth/login", {
+>>>>>>> 6aeb66cd8c29bd03ea57edc1bf7a480ef6e948fc
       method: "POST",
       headers: {
         "Content-Type": "application/json",
