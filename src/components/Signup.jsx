@@ -61,7 +61,7 @@ const signup = () => {
       setProgress(100);
       toast.success(content.message, {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -85,7 +85,7 @@ const signup = () => {
       />
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
