@@ -54,7 +54,8 @@ const login = () => {
       },
       body: JSON.stringify(formData),
     });
-
+    console.log(response);
+    
     const content = await response.json();
     console.log(content);
     setProgress(100);
