@@ -48,6 +48,7 @@ const login = () => {
     setProgress(30);
     const response = await fetch("https://server-murex-seven.vercel.app/api/auth/login", {
       method: "POST",
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
       },
