@@ -4,8 +4,8 @@ import { loginTrue } from "../redux/slice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoadingBar from "react-top-loading-bar";
-import { ToastContainer, toast } from "react-toastify";
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const login = () => {
@@ -69,7 +69,6 @@ const login = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        transition: "Bounce",
       });
       setTimeout(() => {
         navigate("/");
@@ -84,7 +83,6 @@ const login = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        transition: "Bounce",
       });
     }
   };

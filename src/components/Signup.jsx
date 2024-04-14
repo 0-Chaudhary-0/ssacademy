@@ -5,6 +5,8 @@ import { loginTrue } from "../redux/slice";
 import { useDispatch } from "react-redux";
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 import LoadingBar from "react-top-loading-bar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const signup = () => {
   const [progress, setProgress] = useState(0);
@@ -57,6 +59,16 @@ const signup = () => {
     if (content.success) {
       localStorage.setItem("token", content.token);
       setProgress(100);
+      toast.success(content.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       setTimeout(() => {
         dispatch(loginTrue());
         navigate("/");
@@ -70,6 +82,19 @@ const signup = () => {
         color="#f11946"
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
+      />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition="Bounce"
       />
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center">
