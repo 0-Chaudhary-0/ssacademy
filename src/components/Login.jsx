@@ -104,7 +104,6 @@ const login = () => {
         draggable
         pauseOnHover
         theme="light"
-        transition="Bounce"
       />
       {/* Same as */}
       <ToastContainer />
