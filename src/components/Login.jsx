@@ -46,7 +46,7 @@ const login = () => {
   let handleSubmit = async (event) => {
     event.preventDefault();
     setProgress(30);
-    const response = await fetch("https://server-murex-seven.vercel.app/api/auth/login", {
+    const response = await fetch("https://server-murex-seven.vercel.app/api/auth/signin", {
       method: "POST",
       mode: 'no-cors',
       headers: {
