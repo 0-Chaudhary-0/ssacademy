@@ -112,7 +112,7 @@ const login = () => {
           <div className="h-[90%] w-full md:w-3/4 m-4">
             <div className="text-xl flex flex-col justify-center items-center mt-5 md:mt-0">
               <h1 className="font-semibold text-3xl text-gray-700 m-2">
-                Log In
+                LogIn
               </h1>
             </div>
             <div className="flex flex-col justify-center items-center mt-10 md:mt-4 space-y-6 md:space-y-8">
@@ -122,6 +122,7 @@ const login = () => {
                   placeholder="Email"
                   name="email"
                   value={formData.email}
+                  minLength="6"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
@@ -132,6 +133,7 @@ const login = () => {
                   type={password}
                   placeholder="Password"
                   name="password"
+                  minLength="6"
                   value={formData.password}
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
