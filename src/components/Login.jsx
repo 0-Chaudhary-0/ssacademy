@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoadingBar from "react-top-loading-bar";
 import { ToastContainer, toast } from "react-toastify";
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 import "react-toastify/dist/ReactToastify.css";
 
 const login = () => {
   const [progress, setProgress] = useState(0);
   const isLogin = localStorage.getItem('token')
+  const [password, setPassword] = useState('password');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,6 +26,14 @@ const login = () => {
     email: "",
     password: "",
   });
+
+  const togglePasswordVisibility = () => {
+    if(password == 'password'){
+      setPassword('text')
+    } else{
+      setPassword('password')
+    }
+  };
 
   let handleChange = (event) => {
     const { name, value } = event.target;
@@ -115,19 +125,21 @@ const login = () => {
                   placeholder="Email"
                   name="email"
                   value={formData.email}
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
                 />
               </div>
-              <div className="">
+              <div className="relative">
                 <input
-                  type="password"
+                  type={password}
                   placeholder="Password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
                 />
+                {password == 'password' ? <RiEyeFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/> : <RiEyeOffFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/>}
               </div>
             </div>
             <div className="text-center mt-7">

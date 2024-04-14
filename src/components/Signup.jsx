@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { loginTrue } from "../redux/slice";
 import { useDispatch } from "react-redux";
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 import LoadingBar from "react-top-loading-bar";
 
 const signup = () => {
@@ -10,6 +11,7 @@ const signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLogin = localStorage.getItem('token')
+  const [password, setPassword] = useState('password');
 
   useEffect(() => {
     if (isLogin) {
@@ -29,6 +31,14 @@ const signup = () => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const togglePasswordVisibility = () => {
+    if(password == 'password'){
+      setPassword('text')
+    } else{
+      setPassword('password')
+    }
   };
 
   let handleSubmit = async (event) => {
@@ -78,6 +88,7 @@ const signup = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
+                  required
                 />
               </div>
               <div className="">
@@ -85,21 +96,25 @@ const signup = () => {
                   type="email"
                   placeholder="Email"
                   name="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   value={formData.email}
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
+                  required
                 />
               </div>
-              <div className="">
+              <div className="relative">
                 <input
-                  type="password"
+                  type={password}
                   minLength="6"
                   placeholder="Password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
+                  required
                 />
+                {password == 'password' ? <RiEyeFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/> : <RiEyeOffFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/>}
               </div>
             </div>
             <div className="text-center mt-7">
