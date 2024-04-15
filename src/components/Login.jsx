@@ -48,10 +48,10 @@ const login = () => {
     setProgress(30);
     const response = await fetch("https://tinyserver-dun.vercel.app/api/user/isUser", {
       method: "POST",
-      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
-        'Accept': '*/*', 
+        "mode": "no-cors",
+        "Accept": "*/*", 
       },
       body: JSON.stringify(formData),
     });
