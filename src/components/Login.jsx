@@ -18,7 +18,7 @@ const login = () => {
 
   useEffect(() => {
     if (isLogin) {
-      navigate("/");
+      navigate("");
     }
   }, []);
 
@@ -78,16 +78,16 @@ const login = () => {
         navigate("/");
       }, 2000);
     } else {
-      toast.error(content.message, {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      // toast.error(content.message, {
+      //   position: "top-right",
+      //   autoClose: 1000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "dark",
+      // });
     }
   };
   return (
