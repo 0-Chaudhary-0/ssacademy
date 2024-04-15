@@ -46,7 +46,7 @@ const login = () => {
   let handleSubmit = async (event) => {
     event.preventDefault();
     setProgress(30);
-    const response = await fetch("https://tinyserver-dun.vercel.app/checkUser", {
+    const response = await fetch("https://tinyserver-dun.vercel.app/api/user/isUser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
