@@ -49,9 +49,10 @@ const login = () => {
     const response = await fetch("https://tinyserver-dun.vercel.app/api/user/isUser", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "mode": "no-cors",
-        "Accept": "*/*", 
+       "Accept": "*/*",
+       "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+       "mode": "no-cors",
+       "Content-Type": "application/json" 
       },
       body: JSON.stringify(formData),
     });
