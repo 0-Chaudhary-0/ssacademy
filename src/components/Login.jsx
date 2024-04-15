@@ -51,6 +51,7 @@ const login = () => {
       mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
+        'Accept': '*/*', 
       },
       body: JSON.stringify(formData),
     });
