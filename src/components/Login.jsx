@@ -4,14 +4,16 @@ import { loginTrue } from "../redux/slice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoadingBar from "react-top-loading-bar";
-import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
+import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const login = () => {
   const [progress, setProgress] = useState(0);
-  const isLogin = localStorage.getItem('token')
-  const [password, setPassword] = useState('password');
+  const [showMessage, setShowMessage] = useState(false);
+  const [messageText, setMessageText] = useState("");
+  const isLogin = localStorage.getItem("token");
+  const [password, setPassword] = useState("password");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,12 +30,16 @@ const login = () => {
   });
 
   const togglePasswordVisibility = () => {
-    if(password == 'password'){
-      setPassword('text')
-    } else{
-      setPassword('password')
+    if (password == "password") {
+      setPassword("text");
+    } else {
+      setPassword("password");
     }
   };
+
+  let handleTopBar = ()=>{
+    setShowMessage(false)
+  }
 
   let handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,18 +52,21 @@ const login = () => {
   let handleSubmit = async (event) => {
     event.preventDefault();
     setProgress(30);
-    const response = await fetch("https://tinyserver-dun.vercel.app/api/user/isUser", {
-      method: "POST",
-      headers: {
-        "Accept": "*/*",
-       "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-       "mode": "no-cors",
-       "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      "https://tinyserver-dun.vercel.app/api/user/isUser",
+      {
+        method: "POST",
+        headers: {
+          Accept: "*/*",
+          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+          mode: "no-cors",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     console.log(response);
-    
+
     const content = await response.json();
     console.log(content);
     setProgress(100);
@@ -78,16 +87,12 @@ const login = () => {
         navigate("/");
       }, 2000);
     } else {
-      // toast.error(content.message, {
-      //   position: "top-right",
-      //   autoClose: 1000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "dark",
-      // });
+      setShowMessage(true);
+      setMessageText(content.message);
+      setTimeout(() => {
+        setShowMessage(false);
+        setMessageText("");
+      }, 1500);
     }
   };
   return (
@@ -111,6 +116,30 @@ const login = () => {
       />
       {/* Same as */}
       <ToastContainer />
+      {showMessage &&
+        <div>
+          <div
+            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            {/* <strong class="font-bold">Holy smokes!</strong> */}
+            <span class="block sm:inline">
+              {messageText}
+            </span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+              <svg
+                class="fill-current h-6 w-6 text-red-500"
+                role="button"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <title onClick={handleTopBar}>Close</title>
+                <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      }
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center">
           <div className="h-[90%] w-full md:w-3/4 m-4">
@@ -141,7 +170,17 @@ const login = () => {
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
                 />
-                {password == 'password' ? <RiEyeFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/> : <RiEyeOffFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/>}
+                {password == "password" ? (
+                  <RiEyeFill
+                    className="absolute inset-y-2.5 right-3 cursor-pointer text-xl"
+                    onClick={togglePasswordVisibility}
+                  />
+                ) : (
+                  <RiEyeOffFill
+                    className="absolute inset-y-2.5 right-3 cursor-pointer text-xl"
+                    onClick={togglePasswordVisibility}
+                  />
+                )}
               </div>
             </div>
             <div className="text-center mt-7">
