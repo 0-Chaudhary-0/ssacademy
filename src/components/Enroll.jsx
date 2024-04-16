@@ -9,12 +9,12 @@ function Enroll() {
   const isLogin = localStorage.getItem("token");
   const navigate = useNavigate();
   const [progress, setProgress] = useState(0);
+  const isEnrolled = localStorage.getItem("enroll");
 
-  // useEffect(() => {
-  //   if (!isLogin) {
-  //     navigate("/login");
-  //   }
-  // }, []);
+  useEffect(() => {
+    setProgress(30)
+    setProgress(100)
+  }, [])
 
   const [formData, setFormData] = useState({
     name: "",
@@ -64,6 +64,7 @@ function Enroll() {
         progress: undefined,
         theme: "dark",
       });
+      localStorage.setItem("enroll", true);
       setTimeout(() => {
         navigate("/");
       }, 2000);
@@ -103,7 +104,7 @@ function Enroll() {
       {/* Same as */}
       <ToastContainer />
       {isLogin ? (
-        <div className="container mx-auto my-10">
+        !isEnrolled && <div className="container mx-auto my-10">
           <h1 className="text-2xl font-bold mb-4 text-center">Enroll Now</h1>
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-1 p-8 gap-4">
@@ -355,6 +356,8 @@ function Enroll() {
           <Login />
         </div>
       )}
+      {isEnrolled && <p className="text-center my-5 text-green-500">You have already enrolled.</p>}
+
     </>
   );
 }

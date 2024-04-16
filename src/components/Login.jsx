@@ -19,9 +19,11 @@ const login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    setProgress(30)
     if (isLogin) {
       navigate("/");
     }
+    setProgress(100)
   }, []);
 
   let [formData, setFormData] = useState({

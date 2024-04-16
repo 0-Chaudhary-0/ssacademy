@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
+import LoadingBar from "react-top-loading-bar";
 
 const Professors = () => {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    setProgress(30)
+    setProgress(100)
+  }, [])
+  
   return (
     <>
+    <LoadingBar
+        color="#f11946"
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <div className="flex items-left inline-block justify-center text-center mt-5 font-semibold md:text-2xl text-xl">
         <span className="">Our Professors &nbsp;&nbsp;</span>
         <span className="text-pink-500 w-40">

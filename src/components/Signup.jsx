@@ -16,6 +16,8 @@ const signup = () => {
   const [password, setPassword] = useState('password');
 
   useEffect(() => {
+    setProgress(30)
+    setProgress(100)
     if (isLogin) {
       navigate("/");
     }
