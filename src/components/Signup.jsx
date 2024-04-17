@@ -51,6 +51,8 @@ const signup = () => {
     const response = await fetch("https://server-murex-seven.vercel.app/api/auth/signup", {
       method: "POST",
       headers: {
+        "Accept": "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
