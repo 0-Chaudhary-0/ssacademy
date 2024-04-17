@@ -54,7 +54,6 @@ const signup = () => {
         "Accept": "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         "Content-Type": "application/json",
-        "mode": "no-cors",
       },
       body: JSON.stringify(formData),
     });
