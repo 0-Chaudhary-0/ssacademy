@@ -9,12 +9,19 @@ function Enroll() {
   const isLogin = localStorage.getItem("token");
   const navigate = useNavigate();
   const [progress, setProgress] = useState(0);
+  const [isDisable, setIsDisable] = useState(false);
+
+  isDisable
   const isEnrolled = localStorage.getItem("enroll");
 
   useEffect(() => {
     setProgress(30)
     setProgress(100)
   }, [])
+
+  let madeDisable = ()=>{
+    setIsDisable(true)
+  }
 
   const [formData, setFormData] = useState({
     name: "",
@@ -341,6 +348,8 @@ function Enroll() {
 
             <div className="mt-4">
               <button
+              onClick={madeDisable}
+              disabled={isDisable}
                 type="submit"
                 className="bg-blue-500 ml-6 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
               >
