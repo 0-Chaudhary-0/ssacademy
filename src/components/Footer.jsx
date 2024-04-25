@@ -60,7 +60,7 @@ const Footer = () => {
         <div className="bg-gray-100">
           <div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
             <Link to='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <img src="../public/title.jpg" alt="Superior Science Academy" className="h-8 w-8 image" />
+            <img src="/title.jpg" alt="Superior Science Academy" className="h-8 w-8 image" />
             <span className="ml-3 text-xl">Superior Science Academy</span>
             </Link>
             <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">

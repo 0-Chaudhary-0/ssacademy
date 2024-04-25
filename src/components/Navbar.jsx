@@ -101,7 +101,7 @@ const Navbar = () => {
                       to="/"
                     >
                       <img
-                        src="../public/title.jpg"
+                        src="/title.jpg"
                         alt="Superior Science Academy"
                         className="h-8 w-8 image"
                       />
