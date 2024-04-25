@@ -19,10 +19,6 @@ function Enroll() {
     setProgress(100)
   }, [])
 
-  let madeDisable = ()=>{
-    setIsDisable(true)
-  }
-
   const [formData, setFormData] = useState({
     name: "",
     fathersName: "",
@@ -348,7 +344,6 @@ function Enroll() {
 
             <div className="mt-4">
               <button
-              onClick={madeDisable}
               disabled={isDisable}
                 type="submit"
                 className="bg-blue-500 ml-6 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
