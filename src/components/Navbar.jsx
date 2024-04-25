@@ -101,7 +101,7 @@ const Navbar = () => {
                       to="/"
                     >
                       <img
-                        src="https://scontent.fskz2-1.fna.fbcdn.net/v/t39.30808-6/395431154_187452687741817_4689098674194842649_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHMQxTzLHWu5m84pAC_29p8wRGCbdjuY_PBEYJt2O5j8-PgxNGQwQkvj097galf_uGDWyjGopXdbojT_D9uSZev&_nc_ohc=-dIJMY2PrKgAb7eX7YN&_nc_zt=23&_nc_ht=scontent.fskz2-1.fna&oh=00_AfDb9VtWDI-0B_5eHZho4DlHjedOfsGw_wqxZIiy7S6FvQ&oe=661F47CB"
+                        src="../public/title.jpg"
                         alt="Superior Science Academy"
                         className="h-8 w-8 image"
                       />

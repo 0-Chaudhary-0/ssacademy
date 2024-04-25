@@ -60,7 +60,7 @@ const Footer = () => {
         <div className="bg-gray-100">
           <div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
             <Link to='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <img src="https://scontent.fskz2-1.fna.fbcdn.net/v/t39.30808-6/395431154_187452687741817_4689098674194842649_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHMQxTzLHWu5m84pAC_29p8wRGCbdjuY_PBEYJt2O5j8-PgxNGQwQkvj097galf_uGDWyjGopXdbojT_D9uSZev&_nc_ohc=-dIJMY2PrKgAb7eX7YN&_nc_zt=23&_nc_ht=scontent.fskz2-1.fna&oh=00_AfDb9VtWDI-0B_5eHZho4DlHjedOfsGw_wqxZIiy7S6FvQ&oe=661F47CB" alt="Superior Science Academy" className="h-8 w-8 image" />
+            <img src="../public/title.jpg" alt="Superior Science Academy" className="h-8 w-8 image" />
             <span className="ml-3 text-xl">Superior Science Academy</span>
             </Link>
             <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
