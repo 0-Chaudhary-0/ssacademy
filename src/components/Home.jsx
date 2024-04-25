@@ -43,6 +43,7 @@ const Professors = () => {
                 "Abdul Sattar",
                 "Asif Ali",
                 "Abdul Gaffar",
+                "Rehman rahu"
               ],
               autoStart: true,
               delay: 40,
@@ -81,7 +82,7 @@ const Professors = () => {
             </div>
 
             <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-              Sir Arbab Ali
+              Arbab Ali Dahri
             </div>
             <div className=" italic text-gray-500">Mathematics</div>
           </div>
