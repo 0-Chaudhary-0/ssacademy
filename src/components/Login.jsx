@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { loginTrue } from "../redux/slice";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const login = () => {
   const [messageText, setMessageText] = useState("");
   const isLogin = localStorage.getItem("token");
   const [password, setPassword] = useState("password");
+  const isDisable = useRef(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -53,6 +54,9 @@ const login = () => {
 
   let handleSubmit = async (event) => {
     event.preventDefault();
+    isDisable.current.disabled = true
+    isDisable.current.classList.remove("bg-violet-500");
+    isDisable.current.classList.add("bg-violet-200");
     setFormData({email: "", password: ""})
     setProgress(30);
     const response = await fetch(
@@ -67,10 +71,8 @@ const login = () => {
         body: JSON.stringify(formData),
       }
     );
-    console.log(response);
 
     const content = await response.json();
-    console.log(content);
     setProgress(100);
     if (content.success) {
       localStorage.setItem("token", content.token);
@@ -91,6 +93,9 @@ const login = () => {
     } else {
       setShowMessage(true);
       setMessageText(content.message);
+      isDisable.current.disabled = false;
+      isDisable.current.classList.remove("bg-violet-200");
+      isDisable.current.classList.add("bg-violet-500");
       setTimeout(() => {
         setShowMessage(false);
         setMessageText("");
@@ -121,16 +126,16 @@ const login = () => {
       {showMessage &&
         <div>
           <div
-            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
             role="alert"
           >
-            {/* <strong class="font-bold">Holy smokes!</strong> */}
-            <span class="block sm:inline">
+            {/* <strong className="font-bold">Holy smokes!</strong> */}
+            <span className="block sm:inline">
               {messageText}
             </span>
-            <span  onClick={handleTopBar} class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <span  onClick={handleTopBar} className="absolute top-0 bottom-0 right-0 px-4 py-3">
               <svg
-                class="fill-current h-6 w-6 text-red-500"
+                className="fill-current h-6 w-6 text-red-500"
                 role="button"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -157,9 +162,10 @@ const login = () => {
                   placeholder="Email"
                   name="email"
                   value={formData.email}
-                  minLength="6"
+                  minLength={6}
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
+                  required
                 />
               </div>
               <div className="relative">
@@ -167,10 +173,11 @@ const login = () => {
                   type={password}
                   placeholder="Password"
                   name="password"
-                  minLength="6"
+                  minLength={6}
                   value={formData.password}
                   onChange={handleChange}
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
+                  required
                 />
                 {password == "password" ? (
                   <RiEyeFill
@@ -186,7 +193,7 @@ const login = () => {
               </div>
             </div>
             <div className="text-center mt-7">
-              <button className="uppercase px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-violet-500 hover:bg-violet-600  font-medium ">
+              <button ref={isDisable} className="uppercase px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-violet-500 font-medium">
                 login
               </button>
             </div>

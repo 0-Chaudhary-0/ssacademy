@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { loginTrue } from "../redux/slice";
@@ -13,6 +13,7 @@ const signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLogin = localStorage.getItem("token");
+  const isDisable = useRef(false);
   const [password, setPassword] = useState("password");
 
   useEffect(() => {
@@ -47,6 +48,9 @@ const signup = () => {
 
   let handleSubmit = async (event) => {
     event.preventDefault();
+    isDisable.current.disabled = true
+    isDisable.current.classList.remove("bg-violet-500");
+    isDisable.current.classList.add("bg-violet-200");
     setFormData({
       name: "",
       email: "",
@@ -65,7 +69,6 @@ const signup = () => {
     );
 
     const content = await response.json();
-    console.log(content);
     if (content.success) {
       localStorage.setItem("token", content.token);
       setProgress(100);
@@ -83,6 +86,10 @@ const signup = () => {
         dispatch(loginTrue());
         navigate("/");
       }, 2000);
+    } else{
+      isDisable.current.disabled = false;
+      isDisable.current.classList.remove("bg-violet-200");
+      isDisable.current.classList.add("bg-violet-500");
     }
   };
 
@@ -165,7 +172,7 @@ const signup = () => {
               </div>
             </div>
             <div className="text-center mt-7">
-              <button className="uppercase px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-violet-500 hover:bg-violet-600 font-medium ">
+              <button ref={isDisable} className="uppercase px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-violet-500 font-medium ">
                 Sign up
               </button>
             </div>
