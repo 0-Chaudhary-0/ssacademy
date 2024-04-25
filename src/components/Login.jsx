@@ -53,6 +53,7 @@ const login = () => {
 
   let handleSubmit = async (event) => {
     event.preventDefault();
+    setFormData({email: "", password: ""})
     setProgress(30);
     const response = await fetch(
       "https://tinyserver-dun.vercel.app/api/user/isUser",
@@ -153,7 +154,7 @@ const login = () => {
             <div className="flex flex-col justify-center items-center mt-10 md:mt-4 space-y-6 md:space-y-8">
               <div className="">
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   name="email"
                   value={formData.email}

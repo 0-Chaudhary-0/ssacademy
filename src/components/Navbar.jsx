@@ -7,15 +7,23 @@ import { TiUserAdd } from "react-icons/ti";
 import { TiUser } from "react-icons/ti";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const [key, setKey] = useState(0)
+  const [key, setKey] = useState(0);
   const [miniBar, setMiniBar] = useState(false);
 
-  let handleLogout = ()=>{
-    localStorage.removeItem("token")
-    setKey(Math.random())
+  let handleLogout = () => {
+    localStorage.removeItem("token");
+    setKey(Math.random());
     setMiniBar(!miniBar);
-  }
+    setIsOpen(!isOpen);
+  };
+
+  let handleLogoutBig = () => {
+    localStorage.removeItem("token");
+    setKey(Math.random());
+    setMiniBar(!miniBar);
+  };
 
   useEffect(() => {
     let checkLogin = localStorage.getItem("token");
@@ -26,56 +34,213 @@ const Navbar = () => {
     }
   }, [key]);
 
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   let handleMiniBar = () => {
     setMiniBar(!miniBar);
+    setIsOpen(!isOpen);
   };
 
   const isLogin = useSelector((state) => state.isLogin.value);
 
   return (
     <>
-      <header className="text-gray-600 bg-gray-100 body-font">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <Link
-            className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
-            to="/"
-          >
-            <img src="https://scontent.fskz2-1.fna.fbcdn.net/v/t39.30808-6/395431154_187452687741817_4689098674194842649_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHMQxTzLHWu5m84pAC_29p8wRGCbdjuY_PBEYJt2O5j8-PgxNGQwQkvj097galf_uGDWyjGopXdbojT_D9uSZev&_nc_ohc=-dIJMY2PrKgAb7eX7YN&_nc_zt=23&_nc_ht=scontent.fskz2-1.fna&oh=00_AfDb9VtWDI-0B_5eHZho4DlHjedOfsGw_wqxZIiy7S6FvQ&oe=661F47CB" alt="Superior Science Academy" className="h-8 w-8 image" />
-            <span className="ml-3 text-xl">Superior Science Academy</span>
-          </Link>
-          <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <Link className="mr-5 hover:text-gray-900" to="/">
-              Home
-            </Link>
-            <Link className="mr-5 hover:text-gray-900" to="/enroll">
-              Enorll
-            </Link>
-            <Link className="mr-5 hover:text-gray-900" to="/about">
-              About
-            </Link>
-          </nav>
-          {isLogin ? (
-            <div className="cursor-pointer relative">
-              <TiUser
-                className="text-2xl mt-2 md:mt-0"
-                onClick={handleMiniBar}
-              />
-              {miniBar && 
-              <div className="absolute right-4 top-8 text-white flex flex-col font-semibold bg-blue-500 py-2 px-4 rounded-lg">
-                {/* <span className="cursor-pointer" key={key} onClick={handleLogout}>Enroll Now</span> */}
-                <span className="cursor-pointer" key={key} onClick={handleLogout}>Logout</span>
+      <header className="text-gray-200 bg-gray-100 body-font z-[1000]">
+        <nav className="bg-gray-200 shadow-md z-[1000]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-[1000]">
+            <div className="flex items-center justify-between h-16">
+              <div className="flex">
+                <div className="flex-shrink-0 flex gap-4 items-center">
+                  <button
+                    onClick={toggleNavbar}
+                    className={`text-black hover:text-black focus:outline-none focus:text-black md:hidden ${
+                      isOpen ? "hidden" : "block"
+                    }`}
+                  >
+                    <svg
+                      className="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={toggleNavbar}
+                    className={`text-white hover:text-white focus:outline-none focus:text-white ${
+                      isOpen ? "block" : "hidden"
+                    }`}
+                  >
+                    <svg
+                      className={`h-6 w-6 ${isOpen ? "block" : "hidden"}`}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                  <div>
+                    <Link
+                      className="flex title-font font-medium items-center text-black md:mb-0"
+                      to="/"
+                    >
+                      <img
+                        src="https://scontent.fskz2-1.fna.fbcdn.net/v/t39.30808-6/395431154_187452687741817_4689098674194842649_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHMQxTzLHWu5m84pAC_29p8wRGCbdjuY_PBEYJt2O5j8-PgxNGQwQkvj097galf_uGDWyjGopXdbojT_D9uSZev&_nc_ohc=-dIJMY2PrKgAb7eX7YN&_nc_zt=23&_nc_ht=scontent.fskz2-1.fna&oh=00_AfDb9VtWDI-0B_5eHZho4DlHjedOfsGw_wqxZIiy7S6FvQ&oe=661F47CB"
+                        alt="Superior Science Academy"
+                        className="h-8 w-8 image"
+                      />
+                      <span className="ml-3 text-xl">
+                        Superior Science Academy
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+                <div className="hidden md:block">
+                  <div className="ml-4 flex items-center md:ml-6">
+                    <div className="mr-6"></div>
+                    <Link
+                      to="/"
+                      className="text-gray-600 hover:text-black px-3 py-2"
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      to="/enroll"
+                      className="text-gray-600 hover:text-black px-3 py-2"
+                    >
+                      Admissions
+                    </Link>
+                    <Link
+                      to="/about"
+                      className="text-gray-600 hover:text-black px-3 py-2"
+                    >
+                      About
+                    </Link>
+                    {isLogin ? (
+                      <div className="text-pink font-semibold rounded-lg">
+                        {/* <TiUser className="text-2xl text-pink-600 mt-2 md:mt-0" /> */}
+                        <span
+                          className="cursor-pointer block text-pink-600 hover:text-pink px-3 py-2"
+                          key={key}
+                          onClick={handleLogoutBig}
+                        >
+                          Logout
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="cursor-pointer">
+                        <Link to="/login">
+                          <span
+                            className="text-pink-500 font-semibold block hover:text-pink px-3 py-2"
+                            onClick={handleLogoutBig}
+                          >
+                            Login
+                          </span>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
-              }
             </div>
-          ) : (
-            <div className="cursor-pointer relative">
-            <Link to="/login">
-            <span className="text-pink-500 mt-2 md:mt-0 font-semibold">Login</span>
-              {/* <TiUserAdd className="text-2xl text-pink-500 mt-2 md:mt-0" /> */}
-            </Link>
+          </div>
+
+          <div
+            className={`absolute left-0 top-0 h-full bg-gray-200 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
+              isOpen ? "translate-x-0" : "-translate-x-full"
+            } w-80`}
+          >
+            <span className="text-black text-xl relative top-5 left-2 hover:text-black focus:outline-none font-semibold focus:text-black">
+              <Link to="/" onClick={toggleNavbar}>
+                Daulatpur Coaching
+              </Link>
+            </span>
+            <div className="px-2 pt-10 pb-3 sm:px-3">
+              <button
+                onClick={toggleNavbar}
+                className={`absolute right-5 top-6 text-black hover:text-black focus:outline-none focus:text-black ${
+                  isOpen ? "block" : "hidden"
+                }`}
+              >
+                <svg
+                  className={`h-6 w-6 ${isOpen ? "block" : "hidden"}`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <Link
+                onClick={toggleNavbar}
+                to="/"
+                className="block text-gray-600 hover:text-black px-3 py-2"
+              >
+                Home
+              </Link>
+              <Link
+                onClick={toggleNavbar}
+                to="/enroll"
+                className="block text-gray-600 hover:text-black px-3 py-2"
+              >
+                Admission
+              </Link>
+              <Link
+                onClick={toggleNavbar}
+                to="/about"
+                className="block text-gray-600 hover:text-black px-3 py-2"
+              >
+                About
+              </Link>
+
+              {isLogin ? (
+                <div className="text-pink font-semibold rounded-lg flex items-center gap-2">
+                  {/* <TiUser className="text-2xl text-pink-600 mt-2 md:mt-0" /> */}
+                  <span
+                    className="cursor-pointer block text-pink-600 hover:text-pink px-3 py-2"
+                    key={key}
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </span>
+                </div>
+              ) : (
+                <div className="cursor-pointer">
+                  <Link to="/login">
+                    <span
+                      className="text-pink-500 font-semibold block hover:text-pink px-3 py-2"
+                      onClick={toggleNavbar}
+                    >
+                      Login
+                    </span>
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </div>
+        </nav>
       </header>
     </>
   );

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { loginTrue } from "../redux/slice";
 import { useDispatch } from "react-redux";
-import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
+import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import LoadingBar from "react-top-loading-bar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,12 +12,12 @@ const signup = () => {
   const [progress, setProgress] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isLogin = localStorage.getItem('token')
-  const [password, setPassword] = useState('password');
+  const isLogin = localStorage.getItem("token");
+  const [password, setPassword] = useState("password");
 
   useEffect(() => {
-    setProgress(30)
-    setProgress(100)
+    setProgress(30);
+    setProgress(100);
     if (isLogin) {
       navigate("/");
     }
@@ -38,23 +38,31 @@ const signup = () => {
   };
 
   const togglePasswordVisibility = () => {
-    if(password == 'password'){
-      setPassword('text')
-    } else{
-      setPassword('password')
+    if (password == "password") {
+      setPassword("text");
+    } else {
+      setPassword("password");
     }
   };
 
   let handleSubmit = async (event) => {
     event.preventDefault();
-    setProgress(30);
-    const response = await fetch("https://server-murex-seven.vercel.app/api/auth/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
     });
+    setProgress(30);
+    const response = await fetch(
+      "https://server-murex-seven.vercel.app/api/auth/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
 
     const content = await response.json();
     console.log(content);
@@ -143,7 +151,17 @@ const signup = () => {
                   className=" bg-gray-100 rounded-lg px-5 py-2 focus:border border-violet-600 focus:outline-none text-black placeholder:text-gray-600 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px]"
                   required
                 />
-                {password == 'password' ? <RiEyeFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/> : <RiEyeOffFill className="absolute inset-y-2.5 right-3 cursor-pointer text-xl" onClick={togglePasswordVisibility}/>}
+                {password == "password" ? (
+                  <RiEyeFill
+                    className="absolute inset-y-2.5 right-3 cursor-pointer text-xl"
+                    onClick={togglePasswordVisibility}
+                  />
+                ) : (
+                  <RiEyeOffFill
+                    className="absolute inset-y-2.5 right-3 cursor-pointer text-xl"
+                    onClick={togglePasswordVisibility}
+                  />
+                )}
               </div>
             </div>
             <div className="text-center mt-7">

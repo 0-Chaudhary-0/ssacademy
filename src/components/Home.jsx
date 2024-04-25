@@ -16,6 +16,23 @@ const Professors = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
+      <div className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-center text-white">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl font-bold mb-4">
+            Welcome to Superior Science Academy
+
+          </h1>
+          <p className="text-lg mb-8">
+            Unlock Your Potential, Shape Your Future
+          </p>
+          <a
+            href="enroll"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full uppercase"
+          >
+            Apply Now
+          </a>
+        </div>
+      </div>
       <div className="flex items-left inline-block justify-center text-center mt-5 font-semibold md:text-2xl text-xl">
         <span className="">Our Professors &nbsp;&nbsp;</span>
         <span className="text-pink-500 w-40">

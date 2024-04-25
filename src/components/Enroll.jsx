@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { ToastContainer, toast } from "react-toastify";
 import Login from "./Login";
@@ -351,12 +351,12 @@ function Enroll() {
         <div>
           <div className="text-center mt-5 text-red-500">
           <h1 className="text-2xl font-bold mb-1">Please Log In</h1>
-          <p className="mb-4">You need to log in before enrolling.</p>
+          <p className="mb-4">You need to log in before enroll.</p>
           </div>
           <Login />
         </div>
       )}
-      {isEnrolled && <p className="text-center my-5 text-green-500">You have already enrolled.</p>}
+      {isEnrolled && <div className="my-40"><p className="text-center text-xl text-green-500">You have already enrolled.</p><p className="text-center"><Link className="text-gray-500 hover:text-black" to="/">Back to Lobby</Link></p></div>}
 
     </>
   );
