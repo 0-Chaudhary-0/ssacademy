@@ -14,42 +14,42 @@ const TermsAndPolicy = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <div className="container mx-auto px-6 py-10">
-        <h1 className="text-3xl font-bold mb-4 text-center">
-          Terms and Policy
-        </h1>
-        <div className="prose">
-          <h2>Terms of Service</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
-            libero quis libero fermentum bibendum sed eget leo. Donec fermentum
-            sed odio vel ullamcorper.
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center py-6">
+      <div className="max-w-xl p-8 bg-white shadow-md rounded-md">
+        <h1 className="text-3xl font-bold mb-6">Terms & Policy</h1>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-4">Terms of Service</h2>
+          <p className="text-gray-700">
+            Welcome to Our Superior Science Academy! By using our services, you
+            agree to comply with and be bound by the following terms and
+            conditions of use. Please review the terms carefully. If you do not
+            agree to these terms, you should not use our services.
           </p>
-          <h2>Privacy Policy</h2>
-          <p>
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae; Nam sit amet orci ac magna accumsan
-            fermentum. Vestibulum in ipsum massa. Nulla facilisi.
+          {/* Add your specific terms of service content here */}
+        </section>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-4">Privacy Policy</h2>
+          <p className="text-gray-700">
+            Protecting your privacy is important to us. Our Privacy Policy
+            outlines how your personal information is collected, used, and
+            protected when you use our services. By using our services, you
+            consent to the collection and use of your information as outlined
+            in this policy.
           </p>
-          <p>
-            Sed sit amet fermentum eros, nec convallis lorem. Phasellus non
-            justo turpis. Vivamus pretium ligula a ex egestas feugiat. Nulla
-            facilisi.
+          {/* Add your specific privacy policy content here */}
+        </section>
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Refund Policy</h2>
+          <p className="text-gray-700">
+            We strive to provide the best educational experience possible. If
+            you are not satisfied with our services, please contact us
+            immediately to discuss your concerns. Refunds may be issued under
+            certain circumstances in accordance with our Refund Policy.
           </p>
-          <h2>Cookie Policy</h2>
-          <p>
-            Duis convallis accumsan purus, ut porttitor tortor faucibus at.
-            Integer pulvinar justo at velit volutpat vestibulum. Ut sollicitudin
-            nec lacus eu lobortis.
-          </p>
-          <p>
-            Curabitur in tellus arcu. Vestibulum ante ipsum primis in faucibus
-            orci luctus et ultrices posuere cubilia curae; Sed iaculis odio nec
-            justo hendrerit luctus. Duis tincidunt, sapien nec feugiat dapibus,
-            felis turpis blandit nisl, id eleifend velit magna in tortor.
-          </p>
-        </div>
+          {/* Add your specific refund policy content here */}
+        </section>
       </div>
+    </div>
     </>
   );
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-      <footer className="text-gray-600 body-font bg-gray-100">
+      <footer className="text-gray-600 body-font bg-gray-200">
         <div className="container px-2 pt-10 flex justify-center">
           <div className="flex flex-wrap md:text-left order-first">
             <div className="px-4 mx-4">
@@ -57,7 +57,7 @@ const Footer = () => {
             </div> */}
           </div>
         </div>
-        <div className="bg-gray-100">
+        <div className="bg-gray-200">
           <div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
             <Link to='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <img src="/title.jpg" alt="Superior Science Academy" className="h-8 w-8 image" />
