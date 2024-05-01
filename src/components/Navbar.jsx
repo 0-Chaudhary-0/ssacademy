@@ -164,7 +164,7 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`absolute left-0 top-0 h-full bg-gray-200 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
+            className={`absolute left-0 top-0 h-[120vh] bg-gray-200 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             } w-80`}
           >
