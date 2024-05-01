@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
 import LoadingBar from "react-top-loading-bar";
 import { Link } from "react-router-dom";
+import Carousel from "./carousel";
 
 const Professors = () => {
   const [progress, setProgress] = useState(0);
@@ -17,6 +18,7 @@ const Professors = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
+        <Carousel />
       <div className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-center text-white">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold mb-4">
@@ -33,6 +35,9 @@ const Professors = () => {
           </Link>
         </div>
       </div>
+
+      
+
       <div className="flex items-left inline-block justify-center text-center mt-5 font-semibold md:text-2xl text-xl">
         <span className="">Our Professors &nbsp;&nbsp;</span>
         <span className="text-pink-500 w-40">
@@ -43,7 +48,7 @@ const Professors = () => {
                 "Abdul Sattar",
                 "Asif Ali",
                 "Abdul Gaffar",
-                "Rehman rahu"
+                "Rehman rahu",
               ],
               autoStart: true,
               delay: 40,
@@ -56,98 +61,92 @@ const Professors = () => {
       {/* <div className="flex items-left inline-block ml-5 my-5 font-semibold text-xl text-red-600">
           <span>Login Before Enroll</span>
         </div> */}
+
       <div className="flex flex-wrap items-center justify-center text-center my-2">
-  <div className="flex flex-col p-3 my-2">
-    <div className="md:text-3xl text-xl font-medium my-2">
-      Meet Our Esteemed Professors
-    </div>
-    <div className="text-sm mx-2 md:text-xl text-stone-500">
-      Explore the wealth of knowledge and experience embodied by our
-      distinguished professors.
-    </div>
-    <div className="text-sm mx-2 md:text-xl mb-2 text-stone-500">
-      Meet the guiding lights who are shaping the minds of tomorrow's leaders.
-    </div>
-    <div className="flex items-center justify-center text-center">
-      <div className="flex flex-col p-2 m-2 max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Professor 1 */}
-          <div className="flex-col px-6 py-2 ">
-            <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
-              <img
-                src="/arbab.jpg"
-                alt="Arbab Ali Dahri"
-                className=""
-              />
-            </div>
-
-            <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-              Arbab Ali Dahri
-            </div>
-            <div className=" italic text-gray-500">Mathematics</div>
+        <div className="flex flex-col p-3 my-2">
+          <div className="md:text-3xl text-xl font-medium my-2">
+            Meet Our Esteemed Professors
           </div>
-          {/* Professor 2 */}
-          <div className="flex-col px-6 py-2 ">
-            <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
-              <img
-                src="/sattar.jpg"
-                alt="Abdul Sattar Lund"
-                className=""
-              />
-            </div>
-
-            <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-              Abdul Sattar Lund
-            </div>
-            <div className=" italic text-gray-500">Chemistry</div>
+          <div className="text-sm mx-2 md:text-xl text-stone-500">
+            Explore the wealth of knowledge and experience embodied by our
+            distinguished professors.
           </div>
-          {/* Professor 3 */}
-          <div className="flex-col px-6 py-2 ">
-            <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
-              <img
-                src="/gaffar.jpg"
-                alt="Abdul Gaffar Gaincho"
-                className=""
-              />
-            </div>
-
-            <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-            Abdul Gaffar Gaincho
-            </div>
-            <div className=" italic text-gray-500">English</div>
+          <div className="text-sm mx-2 md:text-xl mb-2 text-stone-500">
+            Meet the guiding lights who are shaping the minds of tomorrow's
+            leaders.
           </div>
-          {/* Professor 4 */}
-          <div className="flex-col px-6 py-2 ">
-            <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
-              <img
-                src="/rehman.jpg"
-                alt="Abdul Rehman Rahu"
-                className=""
-              />
-            </div>
+          <div className="flex items-center justify-center text-center">
+            <div className="flex flex-col p-2 m-2 max-w-6xl">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Professor 1 */}
+                <div className="flex-col px-6 py-2 ">
+                  <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
+                    <img src="/arbab.jpg" alt="Arbab Ali Dahri" className="" />
+                  </div>
 
-            <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-            Abdul Rehman Rahu
-            </div>
-            <div className=" italic text-gray-500">Biology</div>
-          </div>
-          {/* Professor 5 */}
-          <div className="flex-col px-6 py-2 ">
-            <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
-              <img
-                src="/asif.jpg"
-                alt=""
-                className=""
-              />
-            </div>
+                  <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
+                    Arbab Ali Dahri
+                  </div>
+                  <div className=" italic text-gray-500">Mathematics</div>
+                </div>
+                {/* Professor 2 */}
+                <div className="flex-col px-6 py-2 ">
+                  <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
+                    <img
+                      src="/sattar.jpg"
+                      alt="Abdul Sattar Lund"
+                      className=""
+                    />
+                  </div>
 
-            <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
-              Rana Asif Ali
-            </div>
-            <div className=" italic text-gray-500">Physics</div>
-          </div>
-          {/* Professor 6 */}
-          {/* <div className="flex-col px-6 py-2 ">
+                  <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
+                    Abdul Sattar Lund
+                  </div>
+                  <div className=" italic text-gray-500">Chemistry</div>
+                </div>
+                {/* Professor 3 */}
+                <div className="flex-col px-6 py-2 ">
+                  <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
+                    <img
+                      src="/gaffar.jpg"
+                      alt="Abdul Gaffar Gaincho"
+                      className=""
+                    />
+                  </div>
+
+                  <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
+                    Abdul Gaffar Gaincho
+                  </div>
+                  <div className=" italic text-gray-500">English</div>
+                </div>
+                {/* Professor 4 */}
+                <div className="flex-col px-6 py-2 ">
+                  <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
+                    <img
+                      src="/rehman.jpg"
+                      alt="Abdul Rehman Rahu"
+                      className=""
+                    />
+                  </div>
+
+                  <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
+                    Abdul Rehman Rahu
+                  </div>
+                  <div className=" italic text-gray-500">Biology</div>
+                </div>
+                {/* Professor 5 */}
+                <div className="flex-col px-6 py-2 ">
+                  <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
+                    <img src="/asif.jpg" alt="" className="" />
+                  </div>
+
+                  <div className="text-lg font-medium text-stone-600 cursor-pointer hover:text-stone-400">
+                    Rana Asif Ali
+                  </div>
+                  <div className=" italic text-gray-500">Physics</div>
+                </div>
+                {/* Professor 6 */}
+                {/* <div className="flex-col px-6 py-2 ">
             <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
               <img
                 src="https://source.unsplash.com/300x300/?woman"
@@ -161,12 +160,11 @@ const Professors = () => {
             </div>
             <div className=" italic text-gray-500">Financer</div>
           </div> */}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
 
       <script src="https://cdn.tailwindcss.com"></script>
       <script src="https://use.fontawesome.com/03f8a0ebd4.js"></script>
