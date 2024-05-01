@@ -36,11 +36,13 @@ const Navbar = () => {
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
-  };
-
-  let handleMiniBar = () => {
-    setMiniBar(!miniBar);
-    setIsOpen(!isOpen);
+    if (!isOpen) {
+      // Disable scrolling on the body when the navigation menu is open
+      document.body.classList.add('overflow-y-hidden');
+    } else {
+      // Enable scrolling on the body when the navigation menu is closed
+      document.body.classList.remove('overflow-y-hidden');
+    }
   };
 
   const isLogin = useSelector((state) => state.isLogin.value);
