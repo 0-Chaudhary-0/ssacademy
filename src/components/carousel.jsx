@@ -8,14 +8,14 @@ const images = [
 
 const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [dragStartX, setDragStartX] = useState(0);
+  const [dragStartX, setDragStartX] = useState(null);
   const [dragDistance, setDragDistance] = useState(0);
   const containerRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000); // Change image every 3 seconds
+    }, 3500); // Change image every 3 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -26,11 +26,13 @@ const Carousel = () => {
   };
 
   const handleDragMove = (e) => {
+    if (dragStartX === null) return;
     const distance = e.touches[0].clientX - dragStartX;
     setDragDistance(distance);
   };
 
   const handleDragEnd = () => {
+    if (dragStartX === null) return;
     const threshold = containerRef.current.clientWidth / 4;
     if (dragDistance > threshold) {
       setCurrentImageIndex((prevIndex) =>
@@ -39,6 +41,7 @@ const Carousel = () => {
     } else if (dragDistance < -threshold) {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }
+    setDragStartX(null);
     setDragDistance(0);
   };
 

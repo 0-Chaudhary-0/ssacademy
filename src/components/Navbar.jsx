@@ -3,8 +3,6 @@ import "../App.css";
 import React, { useEffect, useState } from "react";
 import { loginFalse, loginTrue } from "../redux/slice";
 import { useSelector, useDispatch } from "react-redux";
-import { TiUserAdd } from "react-icons/ti";
-import { TiUser } from "react-icons/ti";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
