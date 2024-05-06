@@ -48,7 +48,7 @@ const Carousel = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full mx-auto md:h-[600px] h-[300px] overflow-hidden shadow-lg"
+      className="relative w-full mx-auto md:h-[600px] h-[400px] overflow-hidden shadow-lg"
       onTouchStart={handleDragStart}
       onTouchMove={handleDragMove}
       onTouchEnd={handleDragEnd}
