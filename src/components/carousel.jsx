@@ -48,17 +48,17 @@ const Carousel = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full mx-auto md:h-[600px] h-[400px] overflow-hidden shadow-lg"
+      className="relative w-full mx-auto md:h-[750px] h-[400px] overflow-hidden shadow-lg"
       onTouchStart={handleDragStart}
       onTouchMove={handleDragMove}
       onTouchEnd={handleDragEnd}
       onTouchCancel={handleDragEnd}
     >
-      <div className="relative w-full md:h-[600px] h-[400px] overflow-hidden flex items-center justify-center">
+      <div className="relative w-full md:h-[750px] h-[400px] overflow-hidden flex items-center justify-center">
         {images.map((image, index) => (
           <img
             key={index}
-            className="absolute w-full md:h-[600px] h-[400px] transition-transform duration-1000"
+            className="absolute w-full md:h-[750px] h-[400px] transition-transform duration-1000"
             src={image}
             alt={`Slide ${index + 1}`}
             style={{
