@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const images = [
   '/c3.jpg',
@@ -8,14 +8,20 @@ const images = [
 
 const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      if (!isDragging) {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }
     }, 3500); // Change image every 3 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isDragging]);
 
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -27,16 +33,63 @@ const Carousel = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    setDragStartX(e.clientX);
+    setDragDistance(0);
+  };
+
+  const handleDragMove = (e) => {
+    if (isDragging) {
+      const distance = e.clientX - dragStartX;
+      setDragDistance(distance);
+      const threshold = containerRef.current.clientWidth / 4;
+      if (distance > threshold) {
+        prevImage();
+        setIsDragging(false);
+      } else if (distance < -threshold) {
+        nextImage();
+        setIsDragging(false);
+      }
+    }
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
   return (
-    <div className="relative w-full mx-auto md:h-[490px] h-[300px] overflow-hidden shadow-lg">
+    <div
+      ref={containerRef}
+      className="relative w-full mx-auto md:h-[490px] h-[300px] overflow-hidden shadow-lg"
+      onMouseDown={handleDragStart}
+      onMouseMove={handleDragMove}
+      onMouseUp={handleDragEnd}
+      onMouseLeave={handleDragEnd}
+    >
       <div className="relative w-full md:h-[490px] h-[300px] overflow-hidden flex items-center justify-center">
-        <div className="max-w-full md:h-[490px] h-[300px] min-w-full">
+        {images.map((image, index) => (
           <img
-            className="w-full md:h-[490px] h-[300px] transition-opacity duration-1000"
-            src={images[currentImageIndex]}
-            alt={`Slide ${currentImageIndex + 1}`}
+            key={index}
+            className="absolute w-full md:h-[490px] h-[300px] transition-opacity duration-1000"
+            src={image}
+            alt={`Slide ${index + 1}`}
+            style={{
+              opacity: index === currentImageIndex ? 1 : 0,
+              transform: `translateX(${index === currentImageIndex ? dragDistance : 0}px)`,
+            }}
           />
-        </div>
+        ))}
+      </div>
+      <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 mx-1 rounded-full ${
+              index === currentImageIndex ? 'bg-black' : 'bg-gray-400'
+            }`}
+          />
+        ))}
       </div>
       <div className="absolute top-0 bottom-0 flex items-center justify-between w-full">
         <button
@@ -57,3 +110,4 @@ const Carousel = () => {
 };
 
 export default Carousel;
+  
