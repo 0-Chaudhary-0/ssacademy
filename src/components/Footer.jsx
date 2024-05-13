@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-      <footer className="text-gray-600 body-font bg-gray-200">
+      <footer className="text-gray-600 body-font bg-gray-200 mt-5">
         <div className="container px-2 pt-10 flex justify-center">
           <div className="flex flex-wrap md:text-left order-first">
             <div className="px-4 mx-4">
@@ -64,7 +64,7 @@ const Footer = () => {
             <span className="ml-3 text-xl">Superior Science Academy</span>
             </Link>
             <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
-              Copyright© 2024. All rights reserved by Superior Science Academy
+            © {new Date().getFullYear()} Superior Science Academy — All rights reserved
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
               <a href="https://web.facebook.com/profile.php?id=100094312606426" target="_blank" className="text-gray-500">

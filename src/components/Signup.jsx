@@ -114,7 +114,7 @@ const signup = () => {
         transition="Bounce"
       />
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-center">
+        <div className="flex justify-center pt-20">
           <div className="h-[90%] w-full md:w-3/4 m-4">
             <div className="text-xl flex flex-col justify-center items-center mt-5 md:mt-0">
               <h1 className="font-semibold text-3xl text-gray-700 m-2">

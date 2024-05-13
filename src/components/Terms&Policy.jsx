@@ -14,7 +14,7 @@ const TermsAndPolicy = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center px-4 md:px-0 py-6">
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center px-4 md:px-0 py-6 pt-20">
       <div className="max-w-xl p-8 bg-white shadow-md rounded-md">
         <h1 className="text-3xl font-bold mb-6">Terms & Policy</h1>
         <section className="mb-8">

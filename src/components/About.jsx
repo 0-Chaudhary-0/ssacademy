@@ -14,7 +14,7 @@ const About = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <div className="container mx-auto px-6 py-10">
+    <div className="container mx-auto px-6 py-10 pt-20">
       <h1 className="text-3xl font-bold mb-4">Superior Science Academy</h1>
       <p className="text-lg mb-4">Welcome to Superior Science Academy, where we foster curiosity and passion for science!</p>
       <p className="text-lg mb-4">At Superior Science Academy, we are committed to providing exceptional science education that goes beyond the classroom. Our innovative approach to teaching combines rigorous academics with real-world applications, ensuring that students develop critical thinking skills, problem-solving abilities, and a deep appreciation for the wonders of science.</p>

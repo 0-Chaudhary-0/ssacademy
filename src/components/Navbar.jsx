@@ -1,27 +1,15 @@
 import { Link } from "react-router-dom";
 import "../App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { loginFalse, loginTrue } from "../redux/slice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [miniBar, setMiniBar] = useState(false);
   const dispatch = useDispatch();
   const [key, setKey] = useState(0);
-  const [miniBar, setMiniBar] = useState(false);
-
-  let handleLogout = () => {
-    localStorage.removeItem("token");
-    setKey(Math.random());
-    setMiniBar(!miniBar);
-    setIsOpen(!isOpen);
-  };
-
-  let handleLogoutBig = () => {
-    localStorage.removeItem("token");
-    setKey(Math.random());
-    setMiniBar(!miniBar);
-  };
+  const navRef = useRef();
 
   useEffect(() => {
     let checkLogin = localStorage.getItem("token");
@@ -45,17 +33,52 @@ const Navbar = () => {
 
   const isLogin = useSelector((state) => state.isLogin.value);
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
+        document.body.classList.remove('overflow-y-hidden');
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isOpen]);
+
+  let handleLogout = () => {
+    localStorage.removeItem("token");
+    setKey(Math.random());
+    setMiniBar(!miniBar);
+    setIsOpen(!isOpen);
+  };
+
+  let handleLogoutBig = () => {
+    localStorage.removeItem("token");
+    setKey(Math.random());
+    setMiniBar(!miniBar);
+  };
+
   return (
     <>
-      <header className="text-gray-200 bg-gray-100 body-font z-[1000]">
-        <nav className="bg-gray-200 shadow-md z-[1000]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-[1000]">
+      <header className="bg-gray-100 body-font z-[1000] sticky top-0 rounded-lg opacity-80">
+        <nav
+          ref={navRef}
+          className="bg-gray-200 shadow-md z-[1000] absolute top-0 w-full"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-[1000] bg-gray-500">
             <div className="flex items-center justify-between h-16">
               <div className="flex">
                 <div className="flex-shrink-0 flex gap-4 items-center">
                   <button
                     onClick={toggleNavbar}
-                    className={`text-black hover:text-black focus:outline-none focus:text-black md:hidden ${
+                    className={`text-white hover:text-gray-200 focus:outline-none focus:text-white md:hidden ${
                       isOpen ? "hidden" : "block"
                     }`}
                   >
@@ -76,7 +99,7 @@ const Navbar = () => {
                   </button>
                   <button
                     onClick={toggleNavbar}
-                    className={`text-white hover:text-white focus:outline-none focus:text-white ${
+                    className={`text-white hover:text-gray-200 focus:outline-none focus:text-white ${
                       isOpen ? "block" : "hidden"
                     }`}
                   >
@@ -95,9 +118,9 @@ const Navbar = () => {
                       />
                     </svg>
                   </button>
-                  <div>
+                  <div className="text-white">
                     <Link
-                      className="flex title-font font-medium items-center text-black md:mb-0"
+                      className="flex title-font font-medium items-center text-white md:mb-0"
                       to="/"
                     >
                       <img
@@ -105,7 +128,7 @@ const Navbar = () => {
                         alt="Superior Science Academy"
                         className="h-8 w-8 image"
                       />
-                      <span className="ml-3 text-xl">
+                      <span className="ml-3 text-xl text-white">
                         Superior Science Academy
                       </span>
                     </Link>
@@ -116,27 +139,26 @@ const Navbar = () => {
                     <div className="mr-6"></div>
                     <Link
                       to="/"
-                      className="text-gray-600 hover:text-black px-3 py-2"
+                      className="text-white hover:text-gray-200 px-3 py-2 font-semibold"
                     >
                       Home
                     </Link>
                     <Link
                       to="/enroll"
-                      className="text-gray-600 hover:text-black px-3 py-2"
+                      className="text-white hover:text-gray-200 px-3 py-2 font-semibold"
                     >
                       Admissions
                     </Link>
                     <Link
                       to="/about"
-                      className="text-gray-600 hover:text-black px-3 py-2"
+                      className="text-white hover:text-gray-200 px-3 py-2 font-semibold"
                     >
                       About
                     </Link>
                     {isLogin ? (
-                      <div className="text-pink font-semibold rounded-lg">
-                        {/* <TiUser className="text-2xl text-pink-600 mt-2 md:mt-0" /> */}
+                      <div className="rounded-lg">
                         <span
-                          className="cursor-pointer block text-pink-600 hover:text-pink px-3 py-2"
+                          className="cursor-pointer block text-red-600 font-semibold hover:text-red-800 px-3 py-2"
                           key={key}
                           onClick={handleLogoutBig}
                         >
@@ -147,7 +169,7 @@ const Navbar = () => {
                       <div className="cursor-pointer">
                         <Link to="/login">
                           <span
-                            className="text-pink-500 font-semibold block hover:text-pink px-3 py-2"
+                            className="text-red-600 font-semibold block hover:text-red-800 px-3 py-2"
                             onClick={handleLogoutBig}
                           >
                             Login
@@ -162,11 +184,11 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`absolute left-0 top-0 h-[120vh] bg-gray-200 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
+            className={`absolute left-0 top-0 h-[100vh] bg-gray-900 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
               isOpen ? "translate-x-0" : "-translate-x-full"
-            } w-80`}
+            } w-80 rounded-lg p-4`}
           >
-            <span className="text-black text-xl relative top-5 left-2 hover:text-black focus:outline-none font-semibold focus:text-black">
+            <span className="text-white text-xl relative top-5 left-2 focus:outline-none font-semibold focus:text-black">
               <Link to="/" onClick={toggleNavbar}>
                 Daulatpur Coaching
               </Link>
@@ -174,7 +196,7 @@ const Navbar = () => {
             <div className="px-2 pt-10 pb-3 sm:px-3">
               <button
                 onClick={toggleNavbar}
-                className={`absolute right-5 top-6 text-black hover:text-black focus:outline-none focus:text-black ${
+                className={`absolute right-5 top-6 text-white focus:outline-none focus:text-black ${
                   isOpen ? "block" : "hidden"
                 }`}
               >
@@ -196,30 +218,29 @@ const Navbar = () => {
               <Link
                 onClick={toggleNavbar}
                 to="/"
-                className="block text-gray-600 hover:text-black px-3 py-2"
+                className="block text-white  px-3 py-2 font-semibold"
               >
                 Home
               </Link>
               <Link
                 onClick={toggleNavbar}
                 to="/enroll"
-                className="block text-gray-600 hover:text-black px-3 py-2"
+                className="block text-white hover:text-white px-3 py-2 font-semibold"
               >
                 Admission
               </Link>
               <Link
                 onClick={toggleNavbar}
                 to="/about"
-                className="block text-gray-600 hover:text-black px-3 py-2"
+                className="block text-white px-3 py-2 font-semibold"
               >
                 About
               </Link>
 
               {isLogin ? (
-                <div className="text-pink font-semibold rounded-lg flex items-center gap-2">
-                  {/* <TiUser className="text-2xl text-pink-600 mt-2 md:mt-0" /> */}
+                <div className="font-semibold rounded-lg flex items-center gap-2">
                   <span
-                    className="cursor-pointer block text-pink-600 hover:text-pink px-3 py-2"
+                    className="cursor-pointer block text-pink-600 hover:text-white px-3 py-2 font-semibold"
                     key={key}
                     onClick={handleLogout}
                   >
@@ -230,7 +251,7 @@ const Navbar = () => {
                 <div className="cursor-pointer">
                   <Link to="/login">
                     <span
-                      className="text-pink-500 font-semibold block hover:text-pink px-3 py-2"
+                      className="text-pink-600 font-semibold block hover:text-white px-3 py-2 font-semibold"
                       onClick={toggleNavbar}
                     >
                       Login
@@ -238,6 +259,10 @@ const Navbar = () => {
                   </Link>
                 </div>
               )}
+              <div className="text-white absolute bottom-5">
+                <p>© {new Date().getFullYear()} Superior Science Academy</p>
+                <p>All rights reserved</p>
+              </div>
             </div>
           </div>
         </nav>

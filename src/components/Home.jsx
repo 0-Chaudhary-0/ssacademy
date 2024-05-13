@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Carousel from "./carousel";
 
 const Professors = () => {
+  let arbab = "lorem ipsum jdskskjkskfskl"
+
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     setProgress(30);
@@ -18,7 +20,9 @@ const Professors = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-        <Carousel />
+      <div className="relative top-0">
+          <Carousel/>
+        </div>
       <div className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-center text-white">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold mb-4">
@@ -79,7 +83,7 @@ const Professors = () => {
             <div className="flex flex-col p-2 m-2 max-w-6xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Professor 1 */}
-                <div className="flex-col px-6 py-2 ">
+                <div className="flex-col px-6 py-2">
                   <div className="h-40 w-60 rounded-2xl overflow-hidden bg-gray-200">
                     <img src="/arbab.jpg" alt="Arbab Ali Dahri" className="" />
                   </div>
@@ -88,6 +92,10 @@ const Professors = () => {
                     Arbab Ali Dahri
                   </div>
                   <div className=" italic text-gray-500">Mathematics</div>
+                  {/* <div className="text-blue-900 relative">
+                    <p className="text-left">{arbab.slice(0,8)}...</p>
+                    <span className="text-blue absolute right-0 top-0"><Link to="/"> Read more </Link> </span>
+                  </div> */}
                 </div>
                 {/* Professor 2 */}
                 <div className="flex-col px-6 py-2 ">
