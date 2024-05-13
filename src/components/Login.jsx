@@ -150,7 +150,7 @@ const login = () => {
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center">
           <div className="h-[90%] w-full md:w-3/4 m-4">
-            <div className="text-xl flex flex-col justify-center items-center mt-5 md:mt-0">
+            <div className="text-xl flex flex-col justify-center items-center mt-5 md:mt-0 pt-20">
               <h1 className="font-semibold text-3xl text-gray-700 m-2">
                 LogIn
               </h1>
