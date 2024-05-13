@@ -259,7 +259,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               )}
-              <div className="text-white absolute bottom-5">
+              <div className="text-white absolute bottom-20">
                 <p>© {new Date().getFullYear()} Superior Science Academy</p>
                 <p>All rights reserved</p>
               </div>

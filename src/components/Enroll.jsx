@@ -370,7 +370,7 @@ function Enroll() {
         </div>
       )}
       {isEnrolled && (
-        <div className="my-40">
+        <div className="py-40">
           <p className="text-center text-xl text-green-500">
             You have already enrolled.
           </p>
