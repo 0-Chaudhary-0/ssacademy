@@ -3,6 +3,14 @@ import "../App.css";
 import React, { useEffect, useState, useRef } from "react";
 import { loginFalse, loginTrue } from "../redux/slice";
 import { useSelector, useDispatch } from "react-redux";
+import { FaHome } from "react-icons/fa";
+import { BsFillInfoCircleFill } from "react-icons/bs";
+import { FiLogIn } from "react-icons/fi";
+import { CiLogout } from "react-icons/ci";
+import { GiStabbedNote } from "react-icons/gi";
+import { IoAddCircle } from "react-icons/io5";
+import { MdAddIcCall } from "react-icons/md";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -218,32 +226,52 @@ const Navbar = () => {
               <Link
                 onClick={toggleNavbar}
                 to="/"
-                className="block text-white  px-3 py-2 font-semibold"
+                className="block text-white px-3 py-2 font-semibold flex items-center"
               >
+              <span className="mx-2"> <FaHome /> </span>
                 Home
               </Link>
               <Link
                 onClick={toggleNavbar}
                 to="/enroll"
-                className="block text-white hover:text-white px-3 py-2 font-semibold"
+                className="block text-white hover:text-white px-3 py-2 font-semibold flex items-center"
               >
+                <span className="mx-2"><IoAddCircle /></span>
                 Admission
               </Link>
               <Link
                 onClick={toggleNavbar}
                 to="/about"
-                className="block text-white px-3 py-2 font-semibold"
+                className="block text-white px-3 py-2 font-semibold flex items-center "
               >
+                <span className="mx-2"><BsFillInfoCircleFill /></span>
                 About
+              </Link>
+              <Link
+                onClick={toggleNavbar}
+                to="/contact"
+                className="block text-white px-3 py-2 font-semibold flex items-center "
+              >
+                <span className="mx-2"><MdAddIcCall /></span>
+                Contact
+              </Link>
+              <Link
+                onClick={toggleNavbar}
+                to="/terms&policy"
+                className="block text-white px-3 py-2 font-semibold flex items-center "
+              >
+                <span className="mx-2"><GiStabbedNote /></span>
+                Terms&Policy
               </Link>
 
               {isLogin ? (
                 <div className="font-semibold rounded-lg flex items-center gap-2">
                   <span
-                    className="cursor-pointer block text-pink-600 hover:text-white px-3 py-2 font-semibold"
+                    className="cursor-pointer block text-pink-600 hover:text-white px-3 py-2 font-semibold flex items-center"
                     key={key}
                     onClick={handleLogout}
                   >
+                    <span className="mx-2"><CiLogout /></span>
                     Logout
                   </span>
                 </div>
@@ -251,9 +279,10 @@ const Navbar = () => {
                 <div className="cursor-pointer">
                   <Link to="/login">
                     <span
-                      className="text-pink-600 font-semibold block hover:text-white px-3 py-2 font-semibold"
+                      className="text-pink-600 font-semibold block hover:text-white px-3 py-2 font-semibold flex items-center"
                       onClick={toggleNavbar}
                     >
+                      <span className="mx-2"><FiLogIn /></span>
                       Login
                     </span>
                   </Link>
