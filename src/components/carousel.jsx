@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const images = [
+  '/c2.jpg',
+  '/c7.jpg',
+  '/c8.jpg',
+  '/c9.jpg',
+  '/c10.jpg',
   '/c1.jpg',
-  '/c5.jpg',
   '/c6.jpg',
 ];
 

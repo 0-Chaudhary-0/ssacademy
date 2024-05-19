@@ -75,12 +75,12 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-gray-100 body-font z-[1000] sticky top-0 rounded-lg opacity-80">
+      <header className="bg-gray-100 body-font z-[1000] relative top-0 rounded-lg opacity-85">
         <nav
           ref={navRef}
           className="bg-gray-200 shadow-md z-[1000] absolute top-0 w-full"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-[1000] bg-gray-500">
+          <div className="mx-auto px-4 sm:px-6 z-[1000] bg-gray-500">
             <div className="flex items-center justify-between h-16">
               <div className="flex">
                 <div className="flex-shrink-0 flex gap-4 items-center">
@@ -192,7 +192,7 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`absolute left-0 top-0 h-[100vh] bg-gray-900 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
+            className={`absolute left-0 top-0 h-[110vh] bg-gray-900 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             } w-80 rounded-lg p-4`}
           >
