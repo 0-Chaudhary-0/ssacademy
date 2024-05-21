@@ -3,26 +3,26 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-      <footer className="text-gray-600 body-font bg-gray-200 mt-5">
+      <footer className="text-white body-font bg-gray-500 mt-5">
         <div className="container px-2 pt-10 flex justify-center">
           <div className="flex flex-wrap md:text-left order-first">
             <div className="px-4 mx-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm">
+              <h2 className="title-font font-medium text-white tracking-widest text-sm">
                 Company
               </h2>
               <nav className="list-none mb-5">
                 <li>
-                  <Link to='/terms&policy' className="text-gray-600 hover:text-gray-800">Terms & Policy</Link>
+                  <Link to='/terms&policy' className="text-gray-300 hover:text-gray-200">Terms & Policy</Link>
                 </li>
               </nav>
             </div>
             <div className=" px-4 mx-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm">
+              <h2 className="title-font font-medium text-white tracking-widest text-sm">
               Contact Us
               </h2>
               <nav className="list-none mb-5">
                 <li>
-                <Link to='/contact' className="text-gray-600 hover:text-gray-800">Contact</Link>
+                <Link to='/contact' className="text-gray-300 hover:text-gray-200">Contact</Link>
                 </li>
               </nav>
             </div>
@@ -57,17 +57,17 @@ const Footer = () => {
             </div> */}
           </div>
         </div>
-        <div className="bg-gray-200">
+        <div className="bg-gray-500">
           <div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
-            <Link to='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <Link to='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-200">
             <img src="/title.jpg" alt="Superior Science Academy" className="h-8 w-8 image" />
             <span className="ml-3 text-xl">Superior Science Academy</span>
             </Link>
-            <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
+            <p className="text-sm text-gray-200 sm:ml-6 sm:mt-0 mt-4">
             © {new Date().getFullYear()} Superior Science Academy — All rights reserved
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-              <a href="https://web.facebook.com/profile.php?id=100094312606426" target="_blank" className="text-gray-500">
+              <a href="https://web.facebook.com/profile.php?id=100094312606426" target="_blank" className="text-gray-200">
                 <svg
                   fill="currentColor"
                   strokeL inecap="round"

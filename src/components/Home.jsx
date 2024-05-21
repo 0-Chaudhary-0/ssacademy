@@ -3,9 +3,10 @@ import Typewriter from "typewriter-effect";
 import LoadingBar from "react-top-loading-bar";
 import { Link } from "react-router-dom";
 import Carousel from "./carousel";
+import "../index.css";
 
-const Professors = () => {
-  let arbab = "lorem ipsum jdskskjkskfskl"
+const Professors = ({children}) => {
+  let arbab = "lorem ipsum jdskskjkskfskl";
 
   const [progress, setProgress] = useState(0);
   useEffect(() => {
@@ -21,30 +22,33 @@ const Professors = () => {
         onLoaderFinished={() => setProgress(0)}
       />
       <div className="relative top-0">
-          <Carousel/>
-        </div>
+        <Carousel />
+      </div>
       <div className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-center text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 flex align-center flex-col">
           <h1 className="text-3xl font-bold mb-4">
             Welcome to Superior Science Academy
           </h1>
           <p className="text-lg mb-8">
             Unlock Your Potential, Shape Your Future
           </p>
-          <Link
-            to="/enroll"
-            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full uppercase"
-          >
-            Apply Now
+          <Link to="/enroll">
+          <div className="flex justify-center items-center">
+      <button
+        className="relative inline-flex items-center px-6 py-3 border-2 text-lg font-semibold rounded-full shadow-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 animate-neon-border"
+        style={{ overflow: 'hidden' }}
+      >
+        Enroll Now
+        <span className="absolute inset-0 rounded-full blur-sm opacity-50 mix-blend-overlay bg-gradient-to-r from-pink-500 to-indigo-500 animate-neon"></span>
+      </button>
+    </div>
           </Link>
         </div>
       </div>
 
-      
-
       <div className="flex items-left inline-block justify-center text-center mt-5 font-semibold md:text-2xl text-xl">
         <span className="">Our Professors &nbsp;&nbsp;</span>
-        <span className="text-pink-500 w-40">
+        <span className="text-pink-500">
           <Typewriter
             options={{
               strings: [
@@ -55,9 +59,9 @@ const Professors = () => {
                 "Rehman rahu",
               ],
               autoStart: true,
-              delay: 40,
+              delay: 10,
               loop: true,
-              deleteSpeed: 40,
+              deleteSpeed: 10,
             }}
           />
         </span>
