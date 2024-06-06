@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Carousel from "./carousel";
 import "../index.css";
 
-const Professors = ({children}) => {
+const Professors = ({ children }) => {
   let arbab = "lorem ipsum jdskskjkskfskl";
 
   const [progress, setProgress] = useState(0);
@@ -33,15 +33,28 @@ const Professors = ({children}) => {
             Unlock Your Potential, Shape Your Future
           </p>
           <Link to="/enroll">
-          <div className="flex justify-center items-center">
-      <button
-        className="relative inline-flex items-center px-6 py-3 border-2 text-lg font-semibold rounded-full shadow-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 animate-neon-border"
-        style={{ overflow: 'hidden' }}
-      >
-        Enroll Now
-        <span className="absolute inset-0 rounded-full blur-sm opacity-50 mix-blend-overlay bg-gradient-to-r from-pink-500 to-indigo-500 animate-neon"></span>
-      </button>
-    </div>
+            <button
+              type="button"
+              class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+            >
+              <span className="mx-2">Enroll Now</span>
+              <svg
+                class="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+              <span class="sr-only">Enroll Now</span>
+            </button>
           </Link>
         </div>
       </div>

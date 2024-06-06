@@ -192,7 +192,7 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`absolute left-0 top-0 h-[110vh] bg-gray-900 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
+            className={` absolute left-0 top-0 h-[110vh] bg-gray-900 z-[1000] shadow-lg md:hidden transition-transform duration-300 ease-in-out transform ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             } w-80 rounded-lg p-4`}
           >
@@ -288,10 +288,6 @@ const Navbar = () => {
                   </Link>
                 </div>
               )}
-              <div className="text-white absolute bottom-20">
-                <p>© {new Date().getFullYear()} Superior Science Academy</p>
-                <p>All rights reserved</p>
-              </div>
             </div>
           </div>
         </nav>
